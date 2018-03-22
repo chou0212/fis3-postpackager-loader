@@ -127,7 +127,7 @@ fis 中对依赖的js 加载，尤其是异步  js，需要一个 js loader。�
 
   allInOne 接收对象配置项。
 
-  - `css, js` 可接受函数, 回传file, 可定制化路径规则, 如:  
+  - `css, js` 可接受函数, 回传file, 可定制化路径规则, 如:
   ```js
     postpackager: fis.plugin('loader', {
       allInOne: {
@@ -137,7 +137,7 @@ fis 中对依赖的js 加载，尤其是异步  js，需要一个 js loader。�
         css: function (file) {
           return "/static/css/" + file.filename + "_aio.css";
         }
-      }      
+      }
     })
   ```
   - `css` all in one 打包后， css 文件的路径规则。默认为 `pkg/${filepath}_aio.css`
@@ -163,6 +163,7 @@ fis 中对依赖的js 加载，尤其是异步  js，需要一个 js loader。�
   ```
 * `obtainScript` 是否收集 `<script>` 内容。（非页面依赖部分）
 * `obtainStyle` 是否收集 `<style>` 和 `<link>` 内容。（非页面依赖部分）
+* `preload` 是否开启预加载 (用来在head中注入preload标签，包含异步依赖js)
 * `useInlineMap` 是否将 sourcemap 作为内嵌脚本输出。
 * `resoucemap` 默认为 `/pkg/${filepath}_map.js` 当 `useInLineMap` 为 `false` 的时候有效，用来控制 resourcemap 生成位置。
 * `resourcemapWhitespace` resourcemap缩进宽度, 默认为2.
@@ -184,4 +185,3 @@ fis 中对依赖的js 加载，尤其是异步  js，需要一个 js loader。�
     })
   })
   ```
-

@@ -28,7 +28,7 @@ function rudePackager(ret, pack, settings, opt) {
       patterns = [patterns];
     }
 
-    
+
     patterns.forEach(function(pattern, index) {
       var exclude = typeof pattern === 'string' && pattern.substring(0, 1) === '!';
 
@@ -118,6 +118,9 @@ rudePackager.defaultOptions = {
 
   // 样式占位符
   stylePlaceHolder: '<!--STYLE_PLACEHOLDER-->',
+  
+  // preload占位符
+  preloadPlaceHolder: '<!--PRELOAD_PLACEHOLDER-->',
 
   // 资源占位符
   resourcePlaceHolder: '<!--RESOURCEMAP_PLACEHOLDER-->',
@@ -153,7 +156,7 @@ rudePackager.defaultOptions = {
     // 允许赋值
     // 1、字符串（直接添加）。demo: 'crossorigin="anonymous"'
     // 2、函数（接收参数orignAttr, url）。函数必须返回一个字符串，作为最终的属性输出。
-    // demo: 
+    // demo:
     //  function (orignAttr, url) {
     //    if (orignAttr.match(/javascript/)) return orignAttr + ' crossorigin="anonymous"';
     //    return orignAttr;
@@ -171,6 +174,9 @@ rudePackager.defaultOptions = {
 
   // 生成的 resourcemap 是内联呢？还是生成 js 文件外链？
   useInlineMap: false,
+  
+  // 资源preload
+  preload: false,
 
   loaderScripts: ['require.js', 'esl.js', 'mod.js', 'sea.js', 'system.js']
 };
